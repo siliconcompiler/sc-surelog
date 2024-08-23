@@ -164,7 +164,7 @@ jobs:
         CIBW_SKIP: "pp* *win32 *i686 *-musllinux_*"
         CIBW_ARCHS_MACOS: x86_64 arm64
         CIBW_TEST_EXTRAS: test
-        CIBW_TEST_COMMAND: pytest
+        CIBW_TEST_COMMAND: pytest {package}/tests/
 
     # "if: always()" ensures that we always upload any wheels that have
     # been created, even if cibuildwheel action fails
