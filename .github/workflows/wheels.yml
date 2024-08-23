@@ -26,6 +26,8 @@ jobs:
         platform:
           - os: ubuntu-latest
             arch: x86_64
+          - os: ubuntu-latest
+            arch: aarch64
           - os: macos-13
             arch: universal
           - os: windows-latest
@@ -119,6 +121,8 @@ jobs:
         platform:
           - os: ubuntu-latest
             arch: x86_64
+          - os: ubuntu-latest
+            arch: aarch64
           - os: macos-13
             arch: universal
           - os: windows-latest
