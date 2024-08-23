@@ -50,7 +50,7 @@ jobs:
       - name: Get Surelog version
         id: get-surelog
         run: |
-          echo "version=$(python3 silioconcompiler/setup/_tools.py --tool surelog --field git-commit)" >> $GITHUB_OUTPUT
+          echo "version=$(python3 siliconcompiler/setup/_tools.py --tool surelog --field git-commit)" >> $GITHUB_OUTPUT
         shell: bash
 
       - uses: actions/cache@v4
