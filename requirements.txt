@@ -1,4 +1,4 @@
 # Testing dependencies
 #:test
-pytest == 6.2.4
-flake8 == 7.0.0
+pytest == 8.3.2
+flake8 == 7.1.1
