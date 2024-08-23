@@ -33,6 +33,9 @@ jobs:
           - os: windows-latest
             arch: x86_64
 
+    outputs:
+      version: ${{ steps.get-surelog.outputs.version }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -142,19 +145,12 @@ jobs:
       with:
         platforms: all
 
-    # Explicitly use "shell: bash" to make this work on Windows
-    - name: Get Surelog version
-      id: get-surelog
-      run: |
-        echo "version=$(python3 siliconcompiler/setup/_tools.py --tool surelog --field git-commit)" >> $GITHUB_OUTPUT
-      shell: bash
-
     - uses: actions/cache@v4
       id: surelog-cache
       with:
         path: |
           surelog/bin/surelog*
-        key: ${{ matrix.platform.os }}-${{ matrix.platform.arch }}-${{ steps.get-surelog.outputs.version }}
+        key: ${{ matrix.platform.os }}-${{ matrix.platform.arch }}-${{ needs.build_surelog.outputs.version }}
 
     # We should be guaranteed a hit after build_surelog executes
     - name: Verify Surelog cache hit
@@ -193,9 +189,6 @@ jobs:
         merge-multiple: true
 
     - uses: pypa/gh-action-pypi-publish@v1.9.0
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_DEPLOY }}
 
     - name: Add wheels to GitHub release artifacts
       uses: softprops/action-gh-release@v2
