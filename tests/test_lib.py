@@ -25,3 +25,9 @@ def test_get_bin_macos():
 @patch('sys.platform', 'win32')
 def test_get_bin_windows():
     assert surelog.get_bin() == 'surelog.exe'
+
+
+def test_version(monkeypatch):
+    import _tools
+
+    assert _tools.tools['surelog']["git-commit"] == f"v{surelog.__version__}"

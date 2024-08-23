@@ -3,7 +3,7 @@ import shutil
 import sys
 
 
-__version__ = "1.83"
+__version__ = "1.84"
 
 
 def has_system_surelog():

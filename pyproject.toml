@@ -14,3 +14,6 @@ markers = [
     "wheel: wheel only tests."
 ]
 testpaths = "tests"
+pythonpath = [
+  "siliconcompiler/setup"
+]
