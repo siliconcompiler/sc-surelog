@@ -11,7 +11,7 @@ set CMAKE_GENERATOR=Ninja
 set CC=cl
 set CXX=cl
 set NO_TCMALLOC=On
-set PREFIX=%GITHUB_WORKSPACE%\sc_surelog
+set PREFIX=%GITHUB_WORKSPACE%\surelog
 set CPU_CORES=%NUMBER_OF_PROCESSORS%
 
 set MAKE_DIR=C:\make\bin

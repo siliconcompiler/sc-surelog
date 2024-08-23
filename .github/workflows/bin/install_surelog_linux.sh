@@ -16,6 +16,6 @@ git submodule update --init --recursive
 
 export LDFLAGS="-lrt"
 make -j$(nproc)
-make install PREFIX=$GITHUB_WORKSPACE/sc_surelog
+make install PREFIX=$GITHUB_WORKSPACE/surelog
 
 cd -

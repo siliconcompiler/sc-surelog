@@ -18,4 +18,4 @@ cmake --version # must be >=3.20
 # Point to Python, build universal binary (supporting Intel and Apple Silicon-based Macs)
 export ADDITIONAL_CMAKE_OPTIONS="-DPython3_ROOT_DIR=${pythonLocation} -DCMAKE_OSX_ARCHITECTURES='x86_64;arm64'"
 make -j$(sysctl -n hw.physicalcpu)
-make install PREFIX=$GITHUB_WORKSPACE/sc_surelog
+make install PREFIX=$GITHUB_WORKSPACE/surelog
