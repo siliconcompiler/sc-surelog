@@ -7,9 +7,11 @@ src_path=$(cd -- "$(dirname "$0")/../../../siliconcompiler" >/dev/null 2>&1 ; pw
 pip3 install orderedmultidict
 pip3 install cmake
 
+mkdir build
+
 # Install Surelog
-git clone $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-url) Surelog
-cd Surelog
+git clone $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-url) build/Surelog
+cd build/Surelog
 git checkout $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-commit)
 git submodule update --init --recursive
 

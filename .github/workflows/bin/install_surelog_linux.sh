@@ -8,9 +8,11 @@ PYTHON_ROOT=$(realpath .venv)
 $PYTHON_ROOT/bin/python -m pip install orderedmultidict
 export ADDITIONAL_CMAKE_OPTIONS="-DPython3_ROOT_DIR=$PYTHON_ROOT -DPython3_FIND_STRATEGY=LOCATION"
 
+mkdir build
+
 # Build surelog (install prefix defined outside file)
-git clone $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-url) Surelog
-cd Surelog
+git clone $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-url) build/Surelog
+cd build/Surelog
 git checkout $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-commit)
 git submodule update --init --recursive
 
