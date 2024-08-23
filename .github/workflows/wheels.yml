@@ -136,6 +136,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: true
 
     # This facilitates building Linux+arm64 wheels
     # https://cibuildwheel.readthedocs.io/en/stable/faq/#emulation
