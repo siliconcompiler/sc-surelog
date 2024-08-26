@@ -68,7 +68,7 @@ setup(
 
     include_package_data=True,
 
-    python_requires=">=3.8,<3.13",
+    python_requires=">=3.8",
     install_requires=install_reqs,
     extras_require=extras_req,
     distclass=BinaryDistribution
