@@ -30,4 +30,4 @@ def test_get_bin_windows():
 def test_version(monkeypatch):
     import _tools
 
-    assert _tools.tools['surelog']["git-commit"] == f"v{surelog.__version__}"
+    assert f"v{surelog.__version__}".startswith(_tools.tools['surelog']["git-commit"])

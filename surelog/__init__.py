@@ -14,9 +14,11 @@ def get_path():
     return pathlib.Path(__file__).parent / "bin"
 
 
-def get_bin():
+def get_bin(platform=None):
     exe = "surelog"
-    if sys.platform.startswith("win32"):
+    if not platform:
+        platform = sys.platform
+    if platform.startswith("win32"):
         exe = f"{exe}.exe"
 
     return exe
