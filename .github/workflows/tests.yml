@@ -37,8 +37,8 @@ jobs:
       - name: Set up Python ${{ matrix.version.python }}
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.version.python }}
-          cache: pip
+          python-version: ${{ matrix.version.python }}\
+          allow-prereleases: true
 
       - name: Run Python tests
         run: |

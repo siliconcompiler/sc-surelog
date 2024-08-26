@@ -78,7 +78,6 @@ jobs:
         with:
           python-version: 3.8
           architecture: x64
-          cache: pip
 
       - name: Build Surelog (Windows)
         if: matrix.platform.os == 'windows-latest' && steps.surelog-cache.outputs.cache-hit != 'true'
