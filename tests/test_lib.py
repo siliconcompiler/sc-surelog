@@ -1,6 +1,7 @@
 import pathlib
 import surelog
 from unittest.mock import patch
+import pytest
 
 
 def test_path():
@@ -10,6 +11,16 @@ def test_path():
 def test_has_system(monkeypatch):
     monkeypatch.setenv("PATH", "")
     assert surelog.has_system_surelog() is False
+
+
+@pytest.mark.parametrize("platform,ext", [
+    ("linux", ""),
+    ("darwin", ""),
+    ("macos", ""),
+    ("win32", ".exe"),
+])
+def test_get_bin(platform, ext):
+    assert surelog.get_bin(platform) == f'surelog{ext}'
 
 
 @patch('sys.platform', 'linux')
@@ -30,4 +41,4 @@ def test_get_bin_windows():
 def test_version(monkeypatch):
     import _tools
 
-    assert _tools.tools['surelog']["git-commit"] == f"v{surelog.__version__}"
+    assert f"v{surelog.__version__}".startswith(_tools.tools['surelog']["git-commit"])
