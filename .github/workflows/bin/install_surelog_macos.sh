@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get directory of setup scripts
-src_path=$(cd -- "$(dirname "$0")/../../../siliconcompiler" >/dev/null 2>&1 ; pwd -P)
+src_path=$(cd -- "$(dirname "$0")/../../../siliconcompiler/siliconcompiler/toolscripts" >/dev/null 2>&1 ; pwd -P)
 
 # Install dependencies
 pip3 install orderedmultidict
@@ -10,9 +10,9 @@ pip3 install cmake
 mkdir build
 
 # Install Surelog
-git clone $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-url) build/Surelog
+git clone $(python3 ${src_path}/_tools.py --tool surelog --field git-url) build/Surelog
 cd build/Surelog
-git checkout $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-commit)
+git checkout $(python3 ${src_path}/_tools.py --tool surelog --field git-commit)
 git submodule update --init --recursive
 
 cmake --version # must be >=3.20

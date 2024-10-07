@@ -1,5 +1,5 @@
 # Get directory of setup scripts
-src_path=$(cd -- "$(dirname "$0")/../../../siliconcompiler" >/dev/null 2>&1 ; pwd -P)
+src_path=$(cd -- "$(dirname "$0")/../../../siliconcompiler/siliconcompiler/toolscripts" >/dev/null 2>&1 ; pwd -P)
 
 yum install -y libuuid-devel java-11-openjdk-devel python3 zlib-static
 
@@ -11,9 +11,9 @@ export ADDITIONAL_CMAKE_OPTIONS="-DPython3_ROOT_DIR=$PYTHON_ROOT -DPython3_FIND_
 mkdir build
 
 # Build surelog (install prefix defined outside file)
-git clone $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-url) build/Surelog
+git clone $(python3 ${src_path}/_tools.py --tool surelog --field git-url) build/Surelog
 cd build/Surelog
-git checkout $(python3 ${src_path}/setup/_tools.py --tool surelog --field git-commit)
+git checkout $(python3 ${src_path}/_tools.py --tool surelog --field git-commit)
 git submodule update --init --recursive
 
 export LDFLAGS="-lrt"
