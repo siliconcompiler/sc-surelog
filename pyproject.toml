@@ -15,5 +15,5 @@ markers = [
 ]
 testpaths = "tests"
 pythonpath = [
-  "siliconcompiler/setup"
+  "siliconcompiler/siliconcompiler/toolscripts"
 ]
