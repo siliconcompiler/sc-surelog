@@ -32,8 +32,8 @@ pip3 install psutil
 
 git config --global core.autocrlf input
 
-for /f "tokens=* USEBACKQ" %%i in (`python3 siliconcompiler/setup/_tools.py --tool surelog --field git-url`) do set GITURL=%%i
-for /f "tokens=* USEBACKQ" %%i in (`python3 siliconcompiler/setup/_tools.py --tool surelog --field git-commit`) do set GITCOMMIT=%%i
+for /f "tokens=* USEBACKQ" %%i in (`python3 siliconcompiler/siliconcompiler/toolscripts/_tools.py --tool surelog --field git-url`) do set GITURL=%%i
+for /f "tokens=* USEBACKQ" %%i in (`python3 siliconcompiler/siliconcompiler/toolscripts/_tools.py --tool surelog --field git-commit`) do set GITCOMMIT=%%i
 
 mkdir build
 cd build
