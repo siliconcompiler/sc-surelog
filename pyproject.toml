@@ -13,7 +13,9 @@ build-backend = "setuptools.build_meta"
 markers = [
     "wheel: wheel only tests."
 ]
-testpaths = "tests"
+testpaths = [
+    "tests"
+]
 pythonpath = [
-  "siliconcompiler/siliconcompiler/toolscripts"
+    "siliconcompiler/siliconcompiler/toolscripts"
 ]
