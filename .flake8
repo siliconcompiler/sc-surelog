@@ -1,4 +1,4 @@
 [flake8]
-extend-exclude = _skbuild/,siliconcompiler/
+extend-exclude = .venv/,siliconcompiler/
 max-line-length = 100
 ignore =
