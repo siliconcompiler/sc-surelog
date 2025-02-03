@@ -26,7 +26,7 @@ jobs:
         platform:
           - os: ubuntu-latest
             arch: x86_64
-          - os: ubuntu-latest
+          - os: ubuntu-24.04-arm
             arch: aarch64
           - os: macos-13
             arch: universal
@@ -40,14 +40,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-
-      # This facilitates building Linux+arm64 wheels
-      # https://cibuildwheel.readthedocs.io/en/stable/faq/#emulation
-      - name: Set up QEMU
-        if: runner.os == 'Linux'
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: all
 
       # Explicitly use "shell: bash" to make this work on Windows
       - name: Get Surelog version
@@ -97,7 +89,7 @@ jobs:
           args: ./.github/workflows/bin/install_surelog_linux.sh
 
       - name: Build Surelog (Linux arm64)
-        if: matrix.platform.os == 'ubuntu-latest' && matrix.platform.arch == 'aarch64' && steps.surelog-cache.outputs.cache-hit != 'true'
+        if: matrix.platform.os == 'ubuntu-24.04-arm' && matrix.platform.arch == 'aarch64' && steps.surelog-cache.outputs.cache-hit != 'true'
         uses: docker://quay.io/pypa/manylinux2014_aarch64:latest
         with:
           args: ./.github/workflows/bin/install_surelog_linux.sh
@@ -123,7 +115,7 @@ jobs:
         platform:
           - os: ubuntu-latest
             arch: x86_64
-          - os: ubuntu-latest
+          - os: ubuntu-24.04-arm
             arch: aarch64
           - os: macos-13
             arch: universal
